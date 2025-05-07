@@ -36,7 +36,7 @@ public class UserServiceImp implements UserService{
 	public User deleteUser(String id) {
 		for(User u:al) {
 			if(u.getId().equals(id)){
-				al.remove(u);
+				al.remove(u); 
 				return u;
 			}
 		}

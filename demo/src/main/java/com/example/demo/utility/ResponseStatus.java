@@ -4,7 +4,7 @@ public class ResponseStatus {
 	private int errorCode;
 	private String errorMessage;
 	public ResponseStatus(int errorCode, String errorMessage) {
-		super();
+		super(); 
 		this.errorCode = errorCode;
 		this.errorMessage = errorMessage;
 	}

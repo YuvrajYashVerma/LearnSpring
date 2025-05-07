@@ -12,5 +12,4 @@ public class GlobalExceptionHandler {
 	public ResponseStatus handleUserNotFoundException(UserNotFoundException ex) {
 		return new ResponseStatus(200,ex.getMessage());
 	}
-
 }
