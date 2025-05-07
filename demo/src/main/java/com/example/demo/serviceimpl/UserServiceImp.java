@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.User;
+import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.service.UserService;
 
 @Service
@@ -29,7 +30,7 @@ public class UserServiceImp implements UserService{
 				return u;
 			}
 		}
-		return null;
+		throw new UserNotFoundException("Incorrect id : ");
 	}
 	@Override
 	public User deleteUser(String id) {
@@ -39,7 +40,7 @@ public class UserServiceImp implements UserService{
 				return u;
 			}
 		}
-		return null;
+		throw new UserNotFoundException("Incorrect id : ");
 	}
 	
 }
