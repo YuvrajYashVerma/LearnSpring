@@ -3,6 +3,8 @@ package com.example.demo.contoller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +24,9 @@ public class DemoController{
 	private UserServiceImp userService;
 	
 	@PostMapping("/register")
-	public User createUser(@RequestBody User user) {
-		return userService.createUser(user);
+	public ResponseEntity<User> createUser(@RequestBody User user) {
+		user = userService.createUser(user);
+	    return new ResponseEntity<User>(user,HttpStatus.ACCEPTED);
 	}
 	@GetMapping("/all")
 	public List<User> getAllUsers(){
@@ -36,6 +39,10 @@ public class DemoController{
 	@DeleteMapping("/delete/{id}")
 	public User deleteUser(@PathVariable String id){
 		return userService.deleteUser(id);
+	}
+	@GetMapping("/try")
+	public int[] trial() {
+		return new int[] {10,20,30};
 	}
 }
 
