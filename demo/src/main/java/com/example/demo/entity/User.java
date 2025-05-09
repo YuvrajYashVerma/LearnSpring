@@ -1,13 +1,25 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class User {
+	@Id
 	private String id;
+	@Column
 	private String name;
+	@Column
 	private String username;
+	@Column
 	private String password;
 	@Override
 	public String toString(){
 		return "User[id = "+id+", name = "+name+", username = "+username+", password = "+password+" ]";
+	}
+	public User(){
+		
 	}
 	public User(String id,String name,String username,String password){
 		super();

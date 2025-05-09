@@ -3,23 +3,26 @@ package com.example.demo.serviceimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.User;
 import com.example.demo.exception.UserNotFoundException;
+import com.example.demo.repository.UserRepo;
 import com.example.demo.service.UserService;
 
 @Service
 public class UserServiceImp implements UserService{
+	@Autowired
+	private UserRepo userRepo;
 	List<User> al=new ArrayList<>();
 	@Override
 	public User createUser(User user) {
-		al.add(user);
-		return user;
+		return userRepo.save(user);
 	}
 	@Override
 	public List<User> getAllUsers(){
-		return al;
+		return userRepo.findAll();
 	}
 	@Override
 	public User updateUser(String id, User user){
@@ -34,12 +37,11 @@ public class UserServiceImp implements UserService{
 	}
 	@Override
 	public User deleteUser(String id) {
-		for(User u:al) {
-			if(u.getId().equals(id)){
-				al.remove(u); 
-				return u;
+		User user = userRepo.findById(id).get();
+			if(user != null){
+				userRepo.delete(user); 
+				return user;
 			}
-		}
 		throw new UserNotFoundException("Incorrect id : ");
 	}
 	

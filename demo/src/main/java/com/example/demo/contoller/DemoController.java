@@ -24,9 +24,8 @@ public class DemoController{
 	private UserServiceImp userService;
 	
 	@PostMapping("/register")
-	public ResponseEntity<User> createUser(@RequestBody User user) {
-		user = userService.createUser(user);
-	    return new ResponseEntity<User>(user,HttpStatus.ACCEPTED);
+	public User createUser(@RequestBody User user){
+	    return  userService.createUser(user);
 	}
 	@GetMapping("/all")
 	public List<User> getAllUsers(){
@@ -39,10 +38,6 @@ public class DemoController{
 	@DeleteMapping("/delete/{id}")
 	public User deleteUser(@PathVariable String id){
 		return userService.deleteUser(id);
-	}
-	@GetMapping("/try")
-	public int[] trial() {
-		return new int[] {10,20,30};
 	}
 }
 
