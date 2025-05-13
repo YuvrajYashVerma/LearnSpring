@@ -15,4 +15,6 @@ public interface UserService {
 	User updateUser(String id, User user);
 	
     User deleteUser(String id);
+    
+    User checkAuth(String username,String password);
 }

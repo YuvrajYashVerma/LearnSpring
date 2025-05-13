@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Registration</title>
 <link rel="stylesheet" href="abc.css"></link>
 </head>
-<body style="background-image: url('bg4.jpg');">
+<body style="background-image: url('bg1.jpg');">
    <div id="mymenu">
     <ul>
         <li>Home</li>
@@ -18,9 +18,25 @@
     </ul>
    </div>
    <div id="mydata">
-    <form action="/home">
+    <form action="/login2" >
         <table class="center">
-            <caption>LOGIN PAGE</caption>
+            <caption>Registration PAGE</caption>
+            <tr>
+                <td>
+                    Enter Id
+                </td>
+                <td>
+                    <input type="text" class="A" name="id" placeholder="Enter ID">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enter Name
+                </td>
+                <td>
+                    <input type="text" class="A" name="name" placeholder="Enter Name">
+                </td>
+            </tr>
             <tr>
                 <td>
                     Enter UserName
@@ -34,16 +50,16 @@
                     Enter Password
                 </td>
                 <td>
-                    <input type="text" class="A" name="password" placeholder="Enter Password">
+                    <input type="password" class="A" name="password" placeholder="Enter Password">
                 </td>
             </tr>
             <tr>
-                <th colspan="2">Need an account?
-                <a href="/register">SignUp</a></th>
+                <th colspan="2">Already have an account?
+                <a href="/login">SignIn</a></th>
            </tr>
             <tr>
                 <th colspan="2">
-                    <input type="submit" class="B" value="LOGIN">
+                    <input type="submit" class="B" value="REGISTRATION">
                 </th>
             </tr>
         </table>

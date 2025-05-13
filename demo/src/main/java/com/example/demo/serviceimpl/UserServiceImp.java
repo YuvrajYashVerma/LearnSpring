@@ -44,5 +44,16 @@ public class UserServiceImp implements UserService{
 			}
 		throw new UserNotFoundException("Incorrect id : ");
 	}
+	@Override
+	public User checkAuth(String username,String password) {
+		List<User> a2= userRepo.findByusername(username);
+		for(User u:a2) {
+			if(u.getUsername().equals(username) && u.getPassword().equals(password)){
+				return u;
+			}
+		}
+		return null;
+		//throw new UserNotFoundException("Incorrect id : ");
+	}
 	
 }
