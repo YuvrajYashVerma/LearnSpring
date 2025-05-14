@@ -1,3 +1,5 @@
+<%@ page import="com.example.demo.entity.User" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,6 +22,30 @@
         <li>About</li>
         <li>Contact</li>
     </ul>
+   </div>
+   <div>
+        <%
+            User user = (User)request.getAttribute("user");
+            if (user != null) {
+            	%>
+            	    <div class="user-info">
+            	     
+            	        <h2 style="text-align:center;">User Information</h2>
+            	        <table class="center" style="background-color: lightgreen;">
+            	            <tr><td>ID:</td><td><%= user.getId() %></td></tr>
+            	            <tr><td>Name:</td><td><%= user.getName() %></td></tr>
+            	            <tr><td>Username:</td><td><%= user.getUsername() %></td></tr>
+            	       
+            	        </table>
+            	    </div>
+            	<%
+            	    } else {
+            	%>
+            	    <p style="text-align:center;">No user data found.</p>
+            	<%
+            	    }
+            	%>
+        
    </div>
 </body>
 </html>

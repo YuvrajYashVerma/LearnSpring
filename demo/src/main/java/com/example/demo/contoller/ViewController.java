@@ -1,12 +1,16 @@
 package com.example.demo.contoller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.User;
+import com.example.demo.repository.UserRepo;
 import com.example.demo.serviceimpl.UserServiceImp;
 
 @Controller
@@ -36,12 +40,13 @@ public class ViewController {
 	}
 	
 	@RequestMapping("/home")
-	public String home(@RequestParam String username,@RequestParam String password) {
+	public String home(@RequestParam String username,@RequestParam String password, Model model) {
 		System.out.println(username + "\t"+ password);
 		User user=userservice.checkAuth(username, password);
-		if(user!=null){
-	    	return "home";
-	    }
+		    if(user!=null){
+			    model.addAttribute("user", user);
+	    	    return "home";
+	        }
 	    return "register";
 	}
 }
