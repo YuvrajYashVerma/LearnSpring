@@ -17,6 +17,7 @@ public class AdminController {
 		System.out.println("User Object");
 		return new User();
 	}
+	
 }
 
 
