@@ -14,7 +14,7 @@ public class AdminController {
 	}
 	@Bean
 	public User getUser() {
-		System.out.println("User Object");
+		System.out.println(" User Object");
 		return new User();
 	}
 	
