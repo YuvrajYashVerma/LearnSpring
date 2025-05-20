@@ -23,6 +23,10 @@ public class User2 {
      public User2() {
     	 
      }
+     public User2(Integer id) {
+    	 super();
+    	 this.id=id;
+     }
      public User2(Integer id, String name, String username, String password) {
 		super();
 		this.id = id;
