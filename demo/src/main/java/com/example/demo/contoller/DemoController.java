@@ -33,11 +33,11 @@ public class DemoController{
 		return userService.getAllUsers();
 	}
 	@PutMapping("/update/{id}")
-	public User  updateUser(@PathVariable String id, @RequestBody User user){
+	public User  updateUser(@PathVariable Integer id, @RequestBody User user){
 		return userService.updateUser(id,user);
 	}
 	@DeleteMapping("/delete/{id}")
-	public User deleteUser(@PathVariable String id){
+	public User deleteUser(@PathVariable Integer id){
 		return userService.deleteUser(id);
 	}
 }

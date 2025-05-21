@@ -25,7 +25,7 @@ public class UserServiceImp implements UserService{
 		return userRepo.findAll();
 	}
 	@Override
-	public User updateUser(String id, User user){
+	public User updateUser(Integer id, User user){
 		for(User u:al) {
 			if(u.getId().equals(id)){
 				u.setName(user.getName());
@@ -36,7 +36,7 @@ public class UserServiceImp implements UserService{
 		throw new UserNotFoundException("Incorrect id : ");
 	}
 	@Override
-	public User deleteUser(String id) {
+	public User deleteUser(Integer id) {
 		User user = userRepo.findById(id).get();
 			if(user != null){
 				userRepo.delete(user); 

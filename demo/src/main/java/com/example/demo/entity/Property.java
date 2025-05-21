@@ -14,8 +14,8 @@ public class Property {
 	private Integer id;
 	@Column(unique = true)
 	private String address;
-	@ManyToOne(targetEntity = User2.class)
-	private Integer user;
+	@ManyToOne(targetEntity = User.class)
+	private User user;
 
 	public Property() {
 		super();
@@ -36,10 +36,10 @@ public class Property {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Integer getUser() {
+	public User getUser() {
 		return user;
 	}
-	public void setUser(Integer user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 	

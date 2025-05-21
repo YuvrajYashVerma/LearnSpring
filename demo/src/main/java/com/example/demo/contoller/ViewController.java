@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepo;
@@ -21,12 +22,11 @@ public class ViewController {
 	User user = new User();
 	
 	@RequestMapping("/login2")
-	public String login2(@RequestParam String id,@RequestParam String name,@RequestParam String username,@RequestParam String password) {
+	public String login2(@RequestParam String name,@RequestParam String username,@RequestParam String password) {
 		user.setName(name);
-		user.setId(id);
 		user.setUsername(username);
 		user.setPassword(password);
-		userservice.createUser(user);
+	    userservice.createUser(user);
 		return "index";
 	}
 	

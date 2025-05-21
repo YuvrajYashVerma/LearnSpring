@@ -1,28 +1,30 @@
+
 package com.example.demo.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 
 @Entity
-public class User {
+public class User{
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	@Column
 	private String name;
 	@Column
 	private String username;
 	@Column
 	private String password;
-	@Override
-	public String toString(){
-		return "User[id = "+id+", name = "+name+", username = "+username+", password = "+password+" ]";
-	}
-	public User(){
-		
-	}
-	public User(String id,String name,String username,String password){
+	
+	public User(){}
+	public User(Integer id) {
+   	 super();
+   	 this.id=id;
+    }
+	public User(Integer id,String name,String username,String password){
 		super();
 		this.id=id;
 		this.name=name;
@@ -30,10 +32,15 @@ public class User {
 		this.password=password;
 	}
 	
-	public String getId() {
+	@Override
+	public String toString(){
+		return "User[id = "+id+", name = "+name+", username = "+username+", password = "+password+" ]";
+	}
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
